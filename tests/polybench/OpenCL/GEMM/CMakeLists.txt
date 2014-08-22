@@ -1,0 +1,17 @@
+get_filename_component(CURRENT_BENCH ${CMAKE_CURRENT_SOURCE_DIR} NAME) 
+
+set(EXECUTABLE_NAME ${CURRENT_BENCH})
+
+file(GLOB SRC_FILES_LIST "*.cpp")
+file(GLOB COMMON_FILES_LIST ${COMMON_SRC_PATH}/*.cpp)
+
+set(KERNEL_PATH ${CMAKE_CURRENT_SOURCE_DIR})
+
+configure_file("${COMMON_INCLUDE_PATH}/SystemConfig.h.cmake"
+               "${CMAKE_CURRENT_BINARY_DIR}/SystemConfig.h")
+
+include_directories(${CMAKE_CURRENT_BINARY_DIR} ${COMMON_INCLUDE_PATH})
+
+add_executable(${EXECUTABLE_NAME} ${SRC_FILES_LIST} ${COMMON_FILES_LIST})
+
+target_link_libraries(${EXECUTABLE_NAME} ${OPENCL_LIBRARY_PATH} ${OPENCL_WRAPPER_LIB} ${BENCH_SUPPORT_LIB})
