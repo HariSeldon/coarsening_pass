@@ -6,3 +6,5 @@ file(GLOB SRC_FILE_LIST "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
 include_directories(${INCLUDE_PATH})
 
 add_library(${BENCH_SUPPORT_LIB} SHARED ${SRC_FILE_LIST})
+
+install_targets("/${INSTALL_LIB_DIR}/" ${BENCH_SUPPORT_LIB})

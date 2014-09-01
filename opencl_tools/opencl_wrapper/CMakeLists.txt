@@ -8,3 +8,5 @@ file(GLOB SRC_FILE_LIST "${WRAPPER_LIB_PATH}/*.cpp")
 include_directories(${WRAPPER_INCLUDE_PATH} ${OPENCL_INCLUDE_PATH})
 
 add_library(${OPENCL_WRAPPER_LIB} SHARED ${SRC_FILE_LIST})
+
+install_targets("/${INSTALL_LIB_DIR}/" ${OPENCL_WRAPPER_LIB})

@@ -9,6 +9,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
 add_definitions("-std=c++11")
 
 # Directories.
+set(INSTALL_LIB_DIR "lib")
+
 set(THRUD_DIR "thrud")
 set(TESTS_DIR "tests")
 set(OPENCL_TOOLS_DIR "opencl_tools")
